@@ -7,21 +7,23 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="nome">Nome:</label>
+        <label for="nome">Nome do produto:</label>
         <input type="text" name="nome" required> <br>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required> <br>
+        <label for="preco">preco:</label>
+        <input type="number"  min="1" step="0.01" name="preco" required> <br>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Adicionar</button>
     </form>
+
+
 
     <?php
         //Verifica se o formulário foi enviado
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Recebe os valores enviados pelo formulário 
             $nome = $_POST['nome'];
-            $email = $_POST['email'];
+            $preco = $_POST['preco1'];
 
             // Conexão com o banco de dados
             $servername = "127.0.0.1";
@@ -37,12 +39,12 @@
             }
 
             //Insere o registro no banco de dados
-            $sql = "INSERT INTO clientes (nome, email) VALUES ('$nome','$email')";
+            $sql = "INSERT INTO produtos (nome, preco) VALUES ('$nome','$preco')";
 
             if ($conn->query($sql) === TRUE){
-                echo "<p style= 'color:Darkgreen;'> Cliente cadastrado com sucesso</p>";
+                echo "<p style= 'color:Darkgreen;'> Poduto adicionado com sucesso</p>";
             } else {
-                echo "<p style= 'color:Red;'> Erro ao cadastrar.</p>";
+                echo "<p style= 'color:Red;'> Erro ao adicionar o produto.</p>";
             }
 
             //Fechar a conexão
