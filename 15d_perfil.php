@@ -24,7 +24,7 @@ $cor = $_SESSION["cor"];
     </style>
 </head>
 <body>
-    <h1>👋 Olá, <?php echo htmlspecialchars($nome); ?>!</h1>
+    <h1> Olá, <?php echo htmlspecialchars($nome); ?>!</h1>
     <p>Bem-vindo(a) ao seu perfil.</p>
     <a href="15d_logout.php">Sair</a>
 </body>
